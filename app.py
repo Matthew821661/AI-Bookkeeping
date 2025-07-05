@@ -6,8 +6,9 @@ from datetime import datetime
 from openai import OpenAI
 
 # Load API key from environment variable
-client = OpenAI(api_key="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")
-    st.error("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")
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    st.error("Please set the OPENAI_API_KEY environment variable.")
     st.stop()
 
 client = OpenAI(api_key=api_key)
